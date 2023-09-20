@@ -69,11 +69,8 @@ class GoodbyeModel:
             "input": text,
         }
 
-        engine = getenv("AZURE_OPENAI_TEXT_EMBEDDING_ENGINE")
-        if engine:
-            params["engine"] = engine
-        else:
-            params["model"] = "text-embedding-ada-002"
+        
+        params["model"] = "text-embedding-ada-002"
 
         return np.array(
             (await openai.Embedding.acreate(**params))["data"][0]["embedding"]
