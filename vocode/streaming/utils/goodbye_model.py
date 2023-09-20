@@ -32,7 +32,7 @@ class GoodbyeModel:
         openai.api_key = openai_api_key or getenv("OPENAI_API_KEY")
         if not openai.api_key:
             raise ValueError("OPENAI_API_KEY must be set in environment or passed in")
-        self.embeddings_cache_path = embeddings_cache_path
+        self.embeddings_cache_path = "."
         self.goodbye_embeddings: Optional[np.ndarray] = None
 
     async def initialize_embeddings(self):
